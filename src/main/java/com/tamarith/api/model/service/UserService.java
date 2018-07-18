@@ -2,15 +2,15 @@ package com.tamarith.api.model.service;
 
 import java.util.List;
 
-import com.tamarith.api.model.entity.User;
+import com.tamarith.api.model.entity.Usuario;
 
 public interface UserService {
 
-		public List<User> getUsers();
+		public List<Usuario> getUsers();
 
-		public void saveUser(User theUser);
+		public void saveUser(Usuario theUser);
 
-		public User getUser(Integer theId);
+		public Usuario getUser(Integer theId);
 
 		public void deleteUser(Integer theId);
 }
