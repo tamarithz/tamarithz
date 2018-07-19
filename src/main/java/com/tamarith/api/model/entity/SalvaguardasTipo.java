@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
@@ -77,6 +80,7 @@ public class SalvaguardasTipo implements Serializable {
 
 		return salvaguardasSubtipo;
 	}
+<<<<<<< HEAD
 
 =======
 package com.tamarith.api.model.entity;
@@ -158,5 +162,7 @@ public class SalvaguardasTipo implements Serializable {
 		return salvaguardasSubtipo;
 	}
 
+>>>>>>> master
+=======
 >>>>>>> master
 }

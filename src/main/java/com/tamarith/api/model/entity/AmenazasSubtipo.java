@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> master
 package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
@@ -96,6 +99,7 @@ public class AmenazasSubtipo implements Serializable {
 	public void setAmenazasTipo(AmenazasTipo amenazasTipo) {
 		this.amenazasTipo = amenazasTipo;
 	}
+<<<<<<< HEAD
 =======
 package com.tamarith.api.model.entity;
 
@@ -183,5 +187,7 @@ public class AmenazasSubtipo implements Serializable {
 		this.activosTipos = activosTipos;
 	}
 
+>>>>>>> master
+=======
 >>>>>>> master
 }
