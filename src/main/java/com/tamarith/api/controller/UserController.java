@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tamarith.api.model.entity.User;
+import com.tamarith.api.model.entity.Usuario;
 import com.tamarith.api.model.service.UserService;
 
 @RestController
@@ -23,28 +23,28 @@ public class UserController {
 	
 	@GetMapping("/users")
 	@ResponseStatus(HttpStatus.OK)
-	public List<User> getUsers() {
+	public List<Usuario> getUsers() {
 		return userService.getUsers();
 	}
 	
 	//Mapeo del GET, status del response a 200 - OK
 	@GetMapping("/user/{userId}")
 	@ResponseStatus(HttpStatus.OK)
-	public User getUser(@PathVariable int userId) {
+	public Usuario getUser(@PathVariable int userId) {
 
-		User user = userService.getUser(userId);
+		Usuario user = userService.getUser(userId);
 		return user;
 	}
 	
 	//Mapeo del POST, status del response a 201 - CREATED
 	@PostMapping("/users")
 	@ResponseStatus(HttpStatus.CREATED)
-	public User addEmployee(@RequestBody User user) {
+	public Usuario addEmployee(@RequestBody Usuario user) {
 
 		//La idea es que no llegue ningún valor al id (JSON puede pasarlo a 0)
 		//Se fuerza a null para asegurar que crea uno nuevo
 
-		user.setId(null);
+		user.setIdusuario(null);
 		userService.saveUser(user);
 		return user;
 	}

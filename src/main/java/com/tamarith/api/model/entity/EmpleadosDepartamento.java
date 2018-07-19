@@ -1,4 +1,4 @@
-package model;
+package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -17,7 +17,7 @@ public class EmpleadosDepartamento implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idempleados_departamento")
-	private int idempleadosDepartamento;
+	private Integer idempleadosDepartamento;
 
 	private String descripcion;
 
@@ -34,11 +34,11 @@ public class EmpleadosDepartamento implements Serializable {
 	public EmpleadosDepartamento() {
 	}
 
-	public int getIdempleadosDepartamento() {
+	public Integer getIdempleadosDepartamento() {
 		return this.idempleadosDepartamento;
 	}
 
-	public void setIdempleadosDepartamento(int idempleadosDepartamento) {
+	public void setIdempleadosDepartamento(Integer idempleadosDepartamento) {
 		this.idempleadosDepartamento = idempleadosDepartamento;
 	}
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tamarith.api.model.dao.UserDAO;
-import com.tamarith.api.model.entity.User;
+import com.tamarith.api.model.entity.Usuario;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -16,34 +16,34 @@ public class UserServiceImpl implements UserService{
 	private UserDAO userDAO;
 	
 	/**
-	 * Método para obtener todos los empleados
+	 * Método para obtener todos los usuarios
 	 */
 	@Override
 	@Transactional(readOnly=true)
-	public List<User> getUsers() {
-		return (List<User>) userDAO.findAll();
+	public List<Usuario> getUsers() {
+		return (List<Usuario>) userDAO.findAll();
 	}
 	/**
 	 * Método para guardar un empleado
 	 */
 	@Override
 	@Transactional
-	public void saveUser(User theUser) {
+	public void saveUser(Usuario theUser) {
 		userDAO.save(theUser);	
 	}
 	/**
-	 * Método para obtener un empleado por su id
+	 * Método para obtener un usuario por su id
 	 */
 	@Override
 	@Transactional(readOnly=true)
-	public User getUser(Integer theId) {
+	public Usuario getUser(Integer theId) {
 		return userDAO.findById(theId).get();
 	}
 
 	/**
-	 * Método para eliminar un empleado
+	 * Método para eliminar un usuario
 	 * 
-	 * TODO aviso antes de realizar esta acción: en vista (Angular)
+	 * TODO aviso antes de realizar esta acción: en vista (HTML)
 	 */
 	@Override
 	@Transactional

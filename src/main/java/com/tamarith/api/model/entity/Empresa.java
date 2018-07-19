@@ -1,4 +1,4 @@
-package model;
+package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -10,20 +10,21 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name="empresa")
 @NamedQuery(name="Empresa.findAll", query="SELECT e FROM Empresa e")
 public class Empresa implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idempresa;
+	private Integer idempresa;
 
-	private int cif;
+	private String cif;
 
 	private String nombre;
 
 	@Column(name="riesgo_asumido")
-	private int riesgoAsumido;
+	private Integer riesgoAsumido;
 
 	//bi-directional one-to-one association to ActivosEmpresa
 	@OneToOne(mappedBy="empresa")
@@ -40,19 +41,19 @@ public class Empresa implements Serializable {
 	public Empresa() {
 	}
 
-	public int getIdempresa() {
+	public Integer getIdempresa() {
 		return this.idempresa;
 	}
 
-	public void setIdempresa(int idempresa) {
+	public void setIdempresa(Integer idempresa) {
 		this.idempresa = idempresa;
 	}
 
-	public int getCif() {
+	public String getCif() {
 		return this.cif;
 	}
 
-	public void setCif(int cif) {
+	public void setCif(String cif) {
 		this.cif = cif;
 	}
 
@@ -64,11 +65,11 @@ public class Empresa implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public int getRiesgoAsumido() {
+	public Integer getRiesgoAsumido() {
 		return this.riesgoAsumido;
 	}
 
-	public void setRiesgoAsumido(int riesgoAsumido) {
+	public void setRiesgoAsumido(Integer riesgoAsumido) {
 		this.riesgoAsumido = riesgoAsumido;
 	}
 

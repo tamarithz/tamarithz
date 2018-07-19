@@ -1,4 +1,4 @@
-package model;
+package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -18,12 +18,12 @@ public class AmenazasSubtipo implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_amenazas_subtipo")
-	private int idAmenazasSubtipo;
+	private Integer idAmenazasSubtipo;
 
 	private String descripcion;
 
 	@Column(name="id_amenaza_tipo")
-	private int idAmenazaTipo;
+	private Integer idAmenazaTipo;
 
 	private String nombre;
 
@@ -43,11 +43,11 @@ public class AmenazasSubtipo implements Serializable {
 	public AmenazasSubtipo() {
 	}
 
-	public int getIdAmenazasSubtipo() {
+	public Integer getIdAmenazasSubtipo() {
 		return this.idAmenazasSubtipo;
 	}
 
-	public void setIdAmenazasSubtipo(int idAmenazasSubtipo) {
+	public void setIdAmenazasSubtipo(Integer idAmenazasSubtipo) {
 		this.idAmenazasSubtipo = idAmenazasSubtipo;
 	}
 
@@ -59,11 +59,11 @@ public class AmenazasSubtipo implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public int getIdAmenazaTipo() {
+	public Integer getIdAmenazaTipo() {
 		return this.idAmenazaTipo;
 	}
 
-	public void setIdAmenazaTipo(int idAmenazaTipo) {
+	public void setIdAmenazaTipo(Integer idAmenazaTipo) {
 		this.idAmenazaTipo = idAmenazaTipo;
 	}
 

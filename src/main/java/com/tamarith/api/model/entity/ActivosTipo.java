@@ -1,4 +1,4 @@
-package model;
+package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -18,11 +18,11 @@ public class ActivosTipo implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idactivos_tipos")
-	private int idactivosTipos;
+	private Integer idactivosTipos;
 
 	private String descripcion;
 
-	private String name;
+	private String nombre;
 
 	//bi-directional many-to-one association to ActivosSubtipo
 	@OneToMany(mappedBy="activosTipo")
@@ -44,11 +44,11 @@ public class ActivosTipo implements Serializable {
 	public ActivosTipo() {
 	}
 
-	public int getIdactivosTipos() {
+	public Integer getIdactivosTipos() {
 		return this.idactivosTipos;
 	}
 
-	public void setIdactivosTipos(int idactivosTipos) {
+	public void setIdactivosTipos(Integer idactivosTipos) {
 		this.idactivosTipos = idactivosTipos;
 	}
 
@@ -60,12 +60,12 @@ public class ActivosTipo implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public String getName() {
-		return this.name;
+	public String getNombre() {
+		return this.nombre;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public List<ActivosSubtipo> getActivosSubtipos() {

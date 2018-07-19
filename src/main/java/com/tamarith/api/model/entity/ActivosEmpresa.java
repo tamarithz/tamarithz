@@ -1,4 +1,4 @@
-package model;
+package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -17,13 +17,13 @@ public class ActivosEmpresa implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idactivos_empresa")
-	private int idactivosEmpresa;
+	private Integer idactivosEmpresa;
 
 	private String cif;
 
-	private int idactivos;
+	private Integer idactivos;
 
-	private int idempleado;
+	private Integer idempleado;
 
 	//bi-directional one-to-one association to Empresa
 	@OneToOne
@@ -41,7 +41,7 @@ public class ActivosEmpresa implements Serializable {
 		return this.idactivosEmpresa;
 	}
 
-	public void setIdactivosEmpresa(int idactivosEmpresa) {
+	public void setIdactivosEmpresa(Integer idactivosEmpresa) {
 		this.idactivosEmpresa = idactivosEmpresa;
 	}
 
@@ -53,19 +53,19 @@ public class ActivosEmpresa implements Serializable {
 		this.cif = cif;
 	}
 
-	public int getIdactivos() {
+	public Integer getIdactivos() {
 		return this.idactivos;
 	}
 
-	public void setIdactivos(int idactivos) {
+	public void setIdactivos(Integer idactivos) {
 		this.idactivos = idactivos;
 	}
 
-	public int getIdempleado() {
+	public Integer getIdempleado() {
 		return this.idempleado;
 	}
 
-	public void setIdempleado(int idempleado) {
+	public void setIdempleado(Integer idempleado) {
 		this.idempleado = idempleado;
 	}
 

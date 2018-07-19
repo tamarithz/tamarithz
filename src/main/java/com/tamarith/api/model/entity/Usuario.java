@@ -1,4 +1,4 @@
-package model;
+package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,17 +9,20 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@Table(name="usuario")
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")
 public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idusuario;
+	private Integer idusuario;
 
-	private String acronimo;
+	private String email;
 
 	private String password;
+	
+	private String role;
 
 	//bi-directional many-to-one association to Empresa
 	@ManyToOne
@@ -29,20 +32,20 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-	public int getIdusuario() {
+	public Integer getIdusuario() {
 		return this.idusuario;
 	}
 
-	public void setIdusuario(int idusuario) {
+	public void setIdusuario(Integer idusuario) {
 		this.idusuario = idusuario;
 	}
 
-	public String getAcronimo() {
-		return this.acronimo;
+	public String getEmail() {
+		return this.email;
 	}
 
-	public void setAcronimo(String acronimo) {
-		this.acronimo = acronimo;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -51,6 +54,15 @@ public class Usuario implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public Empresa getEmpresa() {

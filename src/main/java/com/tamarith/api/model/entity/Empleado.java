@@ -1,4 +1,4 @@
-package model;
+package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -9,13 +9,14 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@Table(name="empleado")
 @NamedQuery(name="Empleado.findAll", query="SELECT e FROM Empleado e")
 public class Empleado implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idempleado;
+	private Integer idempleado;
 
 	private String apellidos;
 
@@ -41,11 +42,11 @@ public class Empleado implements Serializable {
 	public Empleado() {
 	}
 
-	public int getIdempleado() {
+	public Integer getIdempleado() {
 		return this.idempleado;
 	}
 
-	public void setIdempleado(int idempleado) {
+	public void setIdempleado(Integer idempleado) {
 		this.idempleado = idempleado;
 	}
 
