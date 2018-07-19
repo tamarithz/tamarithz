@@ -45,11 +45,4 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 		.exceptionHandling().accessDeniedPage("/error_403");
 		
 	}
-
-	@Override
-    public void configure(WebSecurity web) throws Exception {
-        web
-           .ignoring()
-               .antMatchers("/**");
-    }
 }

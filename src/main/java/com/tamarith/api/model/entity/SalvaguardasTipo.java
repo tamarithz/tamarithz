@@ -22,7 +22,7 @@ public class SalvaguardasTipo implements Serializable {
 
 	private String descripcion;
 
-	private String name;
+	private String nombre;
 
 	//bi-directional many-to-one association to SalvaguardasSubtipo
 	@OneToMany(mappedBy="salvaguardasTipo")
@@ -47,12 +47,12 @@ public class SalvaguardasTipo implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public String getName() {
-		return this.name;
+	public String getNombre() {
+		return this.nombre;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public List<SalvaguardasSubtipo> getSalvaguardasSubtipos() {

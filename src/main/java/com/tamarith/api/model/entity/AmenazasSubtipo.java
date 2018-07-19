@@ -9,6 +9,7 @@ import java.util.List;
  * The persistent class for the amenazas_subtipo database table.
  * 
  */
+
 @Entity
 @Table(name="amenazas_subtipo")
 @NamedQuery(name="AmenazasSubtipo.findAll", query="SELECT a FROM AmenazasSubtipo a")

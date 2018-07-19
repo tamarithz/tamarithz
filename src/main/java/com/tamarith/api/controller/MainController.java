@@ -17,6 +17,8 @@ public class MainController {
 		return "index";
 	}
 	
+	
+	
 	/*Plantilla para nuevos métodos del controller:
 	 * 
 	 * ---SE INDICA EL TIPO DE MÉTODO.Este es genérico, se puede usar
