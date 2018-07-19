@@ -1,8 +1,19 @@
 package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**
@@ -22,23 +33,25 @@ public class AmenazasSubtipo implements Serializable {
 
 	private String descripcion;
 
-	@Column(name="id_amenaza_tipo")
-	private Integer idAmenazaTipo;
-
 	private String nombre;
 
 	//bi-directional many-to-many association to ActivosTipo
 	@ManyToMany
 	@JoinTable(
-		name="amenazas_has_activos_tipos"
+		name="activos_tipos_has_amenazas_subtipo"
 		, joinColumns={
-			@JoinColumn(name="amenazas_idriesgo")
+			@JoinColumn(name="amenazas_subtipo_id_amenazas_subtipo")
 			}
 		, inverseJoinColumns={
-			@JoinColumn(name="activos_tipos_idactivos_tipos")
+			@JoinColumn(name="activos_tipos_id_activos_tipos")
 			}
 		)
 	private List<ActivosTipo> activosTipos;
+	
+	//bi-directional many-to-one association to AmenazasTipo
+	@ManyToOne
+	@JoinColumn(name="id_amenaza_tipo")
+	private AmenazasTipo amenazasTipo;
 
 	public AmenazasSubtipo() {
 	}
@@ -59,14 +72,6 @@ public class AmenazasSubtipo implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public Integer getIdAmenazaTipo() {
-		return this.idAmenazaTipo;
-	}
-
-	public void setIdAmenazaTipo(Integer idAmenazaTipo) {
-		this.idAmenazaTipo = idAmenazaTipo;
-	}
-
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -83,4 +88,11 @@ public class AmenazasSubtipo implements Serializable {
 		this.activosTipos = activosTipos;
 	}
 
+	public AmenazasTipo getAmenazasTipo() {
+		return this.amenazasTipo;
+	}
+
+	public void setAmenazasTipo(AmenazasTipo amenazasTipo) {
+		this.amenazasTipo = amenazasTipo;
+	}
 }

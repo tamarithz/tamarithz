@@ -9,6 +9,7 @@
 		<class>com.tamarith.api.model.entity.ActivosSubtipo</class>
 		<class>com.tamarith.api.model.entity.ActivosTipo</class>
 		<class>com.tamarith.api.model.entity.AmenazasSubtipo</class>
+		<class>com.tamarith.api.model.entity.AmenazasTipo</class>
 		<class>com.tamarith.api.model.entity.Departamento</class>
 		<class>com.tamarith.api.model.entity.Empleado</class>
 		<class>com.tamarith.api.model.entity.EmpleadosDepartamento</class>
