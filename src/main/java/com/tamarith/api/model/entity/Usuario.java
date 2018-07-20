@@ -24,11 +24,6 @@ public class Usuario implements Serializable {
 	
 	private String role;
 
-	//bi-directional many-to-one association to Empresa
-	@ManyToOne
-	@JoinColumn(name="idempresa")
-	private Empresa empresa;
-
 	public Usuario() {
 	}
 
@@ -63,14 +58,6 @@ public class Usuario implements Serializable {
 
 	public void setRole(String role) {
 		this.role = role;
-	}
-
-	public Empresa getEmpresa() {
-		return this.empresa;
-	}
-
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
 	}
 
 }
