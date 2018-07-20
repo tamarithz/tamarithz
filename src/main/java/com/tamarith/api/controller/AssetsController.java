@@ -1,26 +1,44 @@
 package com.tamarith.api.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.tamarith.api.model.entity.ActivosTipo;
 import com.tamarith.api.model.service.AssetService;
 
-@RestController
-//@SessionAttributes("assets")
+@Controller
+@SessionAttributes("assets")
 public class AssetsController {
-
-	public String assetType;
-	public String assetSubType;
+	
+	protected final Log logger = LogFactory.getLog(this.getClass());
 	
 	@Autowired
 	private AssetService assetService;
 	
-	@GetMapping("/listar")
-	//@ResponseStatus(HttpStatus.OK)
-	public String listar(Model model) {
-		model.addAttribute("assets", assetService.getActivosSubtipo());
+	@Secured("ROLE_USER")
+	@RequestMapping(value = {"/listar", "/"}, method = RequestMethod.GET)
+	public String listar(Model model, Authentication authentication, HttpServletRequest request) {
+
+		if(authentication != null) {
+			logger.info("Bienvenido: ".concat(authentication.getName()));
+		}
+		List<ActivosTipo> assets = assetService.getActivosTipo();
+		model.addAttribute("assets", assets);
 		return "listar";
 	}
+	
 }

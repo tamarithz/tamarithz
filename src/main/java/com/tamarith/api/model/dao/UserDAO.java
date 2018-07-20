@@ -4,6 +4,9 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.tamarith.api.model.entity.Usuario;
 
-public interface UserDAO extends CrudRepository<Usuario, Integer>{
+
+public interface UserDAO extends CrudRepository<Usuario, Long>{
+
+	Usuario findByEmail(String email);
 	
 }

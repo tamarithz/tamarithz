@@ -1,6 +1,8 @@
 package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -16,27 +18,27 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idusuario;
+	private Long idusuario;
 
+	@Column(unique = true)
 	private String email;
 
 	private String password;
 	
-	private String role;
+	private boolean enabled;
 
-	//bi-directional many-to-one association to Empresa
-	@ManyToOne
-	@JoinColumn(name="idempresa")
-	private Empresa empresa;
-
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "idusuario")
+	private List<Role> roles;
+	
 	public Usuario() {
 	}
 
-	public Integer getIdusuario() {
+	public Long getIdusuario() {
 		return this.idusuario;
 	}
 
-	public void setIdusuario(Integer idusuario) {
+	public void setIdusuario(Long idusuario) {
 		this.idusuario = idusuario;
 	}
 
@@ -56,21 +58,19 @@ public class Usuario implements Serializable {
 		this.password = password;
 	}
 
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled (boolean enabled) {
+		this.enabled = enabled;
+	}
 	
-	public String getRole() {
-		return role;
+	public List<Role> getRoles() {
+		return roles;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public Empresa getEmpresa() {
-		return this.empresa;
-	}
-
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 }

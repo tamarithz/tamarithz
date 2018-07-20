@@ -1,18 +1,20 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-	
+
 <head th:fragment="head">
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="@{/css/style.css}">
-	<title>TAMARITH</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}">
+<title>TAMARITHZ</title>
 </head>
 
 <body>
 
 	<header th:fragment="header">
-
+		<!-- 	Mensajes  importantes -->
 		<div class="alert alert-success" th:if="${success != null}"
 			th:text="${success}"></div>
 		<div class="alert alert-danger" th:if="${error != null}"
@@ -21,50 +23,34 @@
 			th:text="${warning}"></div>
 		<div class="alert alert-info" th:if="${info != null}"
 			th:text="${info}"></div>
+		<!-- 		Botones login y logout	 -->
+		<ul class="navbar-nav navbar-right">
+			<li sec:authorize="!isAuthenticated()"><a
+				class="btn btn-outline-primary" th:href="@{/login}">ENTRAR</a></li>
+			<li sec:authorize="isAuthenticated()" class="dropdown show"><a
+				class="btn btn-outline-primary dropdown-toggle" href="#"
+				role="button" id="dropdownMenuLink" data-toggle="dropdown"
+				aria-haspopup="true" aria-expanded="false"><span
+					sec:authentication="name"></span></a>
+
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<form id="logoutForm" th:action="@{/login?logout}" method="post">
+						<button class="dropdown-item"
+							onclick="document.getElementById('logoutForm').submit();"
+							type="submit">CERRAR SESIÓN</button>
+					</form>
+
+				</div></li>
+		</ul>
 	</header>
 
-	<div class="container"></div>
-
 	<footer th:fragment="footer" class="container">
-		<hr />
 		<p sec:authorize="isAuthenticated()">
-			Usuario: <span sec:authentication="name"></span> | Roles: <span
+			Usuario logeado: <span sec:authentication="name"></span> | Roles: <span
 				sec:authentication="principal.authorities"></span>
 		</p>
-	</footer>
-</body>
-=======
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:fragment="head">
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="@{/css/style.css}">
-	<title>TAMARITH</title>
-</head>
-<body>
-
-	<header th:fragment="header">
-
-		<div class="alert alert-success" th:if="${success != null}"
-			th:text="${success}"></div>
-		<div class="alert alert-danger" th:if="${error != null}"
-			th:text="${error}"></div>
-		<div class="alert alert-warning" th:if="${warning != null}"
-			th:text="${warning}"></div>
-		<div class="alert alert-info" th:if="${info != null}"
-			th:text="${info}"></div>
-	</header>
-
-	<div class="container"></div>
-
-	<footer th:fragment="footer" class="container">
 		<hr />
-		<p sec:authorize="isAuthenticated()">
-			Usuario: <span sec:authentication="name"></span> | Roles: <span
-				sec:authentication="principal.authorities"></span>
-		</p>
 	</footer>
+	<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 </body>
->>>>>>> jamarcos
 </html>

@@ -2,7 +2,6 @@ package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -34,9 +33,6 @@ public class Empresa implements Serializable {
 	@OneToOne(mappedBy="empresa")
 	private Empleado empleado;
 
-	//bi-directional many-to-one association to Usuario
-	@OneToMany(mappedBy="empresa")
-	private List<Usuario> usuarios;
 
 	public Empresa() {
 	}
@@ -87,28 +83,6 @@ public class Empresa implements Serializable {
 
 	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
-	}
-
-	public List<Usuario> getUsuarios() {
-		return this.usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
-
-	public Usuario addUsuario(Usuario usuario) {
-		getUsuarios().add(usuario);
-		usuario.setEmpresa(this);
-
-		return usuario;
-	}
-
-	public Usuario removeUsuario(Usuario usuario) {
-		getUsuarios().remove(usuario);
-		usuario.setEmpresa(null);
-
-		return usuario;
 	}
 
 }

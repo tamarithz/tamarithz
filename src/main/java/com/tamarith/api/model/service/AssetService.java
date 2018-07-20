@@ -2,12 +2,12 @@ package com.tamarith.api.model.service;
 
 import java.util.List;
 
-import com.tamarith.api.model.entity.ActivosSubtipo;;
+import com.tamarith.api.model.entity.ActivosTipo;;
 
 public interface AssetService {
 
-	public ActivosSubtipo getActivoSubtipo(Integer activoSubtipoId);
+	public ActivosTipo getActivoTipo(Integer activoTipoId);
 
-	public List<ActivosSubtipo> getActivosSubtipo();
+	public List<ActivosTipo> getActivosTipo();
 		
 }

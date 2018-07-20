@@ -1,5 +1,7 @@
-INSERT INTO empresa VALUES (1, 'A00000000', 'Tamarith', 0);
-INSERT INTO usuario VALUES (1, 'admin@admin.tz', 'tamarith','ADMIN', 1);
+/*INSERT INTO empresa VALUES (1, 'A00000000', 'Tamarith', 0);*/
+INSERT INTO usuario VALUES (1, 'admin@admin.tz', 1, 'tamarith');
+INSERT INTO authorities (idusuario, authority) VALUES(1, 'ROLE_USER');
+INSERT INTO authorities (idusuario, authority) VALUES(1, 'ROLE_ADMIN');
 
 
 INSERT INTO `activos_tipos` VALUES (1,'[d]','datos/informacion'),(2,'[k]','claves criptograficas'),(3,'[s]','servicios'),(4,'[sw]','software'),(5,'[hw]','hardware'),(6,'[com]','redes de comunicaciones'),(7,'[media]','soportes de informacion'),(8,'[aux]','equipqmiento auxiliar'),(9,'[l]','instalaciones'),(10,'[p]','personal');

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tamarith.api.model.dao.AssetDAO;
-import com.tamarith.api.model.entity.ActivosSubtipo;
+import com.tamarith.api.model.entity.ActivosTipo;
 
 @Service
 public class AssetServiceImpl implements AssetService{
@@ -17,14 +17,14 @@ public class AssetServiceImpl implements AssetService{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public ActivosSubtipo getActivoSubtipo(Integer activoSubtipoId) {		
-		return assetDAO.findById(activoSubtipoId).get();
+	public ActivosTipo getActivoTipo(Integer activoTipoId) {		
+		return assetDAO.findById(activoTipoId).get();
 	}
 
 	@Override
 	@Transactional(readOnly=true)
-	public List<ActivosSubtipo> getActivosSubtipo() {
-		return (List<ActivosSubtipo>) assetDAO.findAll();
+	public List<ActivosTipo> getActivosTipo() {
+		return (List<ActivosTipo>) assetDAO.findAll();
 	}
 
 }

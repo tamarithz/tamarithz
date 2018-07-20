@@ -1,9 +1,8 @@
 package com.tamarith.api.controller;
 
-import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,14 +17,9 @@ import com.tamarith.api.model.service.UserService;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+	
 	@Autowired
 	private UserService userService;
-	
-	@GetMapping("/users")
-	@ResponseStatus(HttpStatus.OK)
-	public List<Usuario> getUsers() {
-		return userService.getUsers();
-	}
 	
 	//Mapeo del GET, status del response a 200 - OK
 	@GetMapping("/user/{userId}")
@@ -39,7 +33,7 @@ public class UserController {
 	//Mapeo del POST, status del response a 201 - CREATED
 	@PostMapping("/users")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Usuario addEmployee(@RequestBody Usuario user) {
+	public Usuario addUser(@RequestBody Usuario user) {
 
 		//La idea es que no llegue ningún valor al id (JSON puede pasarlo a 0)
 		//Se fuerza a null para asegurar que crea uno nuevo
@@ -47,5 +41,11 @@ public class UserController {
 		user.setIdusuario(null);
 		userService.saveUser(user);
 		return user;
+	}
+	
+	@DeleteMapping("/users/{userId}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteUser(@PathVariable int userId) {
+		userService.deleteUser(userId);
 	}
 }
