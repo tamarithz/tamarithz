@@ -4,28 +4,27 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
-
 /**
  * The persistent class for the salvaguardas_tipo database table.
  * 
  */
 @Entity
-@Table(name="salvaguardas_tipo")
-@NamedQuery(name="SalvaguardasTipo.findAll", query="SELECT s FROM SalvaguardasTipo s")
+@Table(name = "salvaguardas_tipo")
+@NamedQuery(name = "SalvaguardasTipo.findAll", query = "SELECT s FROM SalvaguardasTipo s")
 public class SalvaguardasTipo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="idsalvaguardas_tipo")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idsalvaguardas_tipo")
 	private Integer idsalvaguardasTipo;
 
 	private String descripcion;
 
 	private String name;
 
-	//bi-directional many-to-one association to SalvaguardasSubtipo
-	@OneToMany(mappedBy="salvaguardasTipo")
+	// bi-directional many-to-one association to SalvaguardasSubtipo
+	@OneToMany(mappedBy = "salvaguardasTipo")
 	private List<SalvaguardasSubtipo> salvaguardasSubtipos;
 
 	public SalvaguardasTipo() {

@@ -2,6 +2,7 @@ package com.tamarith.api.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
 
 /**
@@ -32,7 +33,6 @@ public class Empresa implements Serializable {
 	//bi-directional one-to-one association to Empleado
 	@OneToOne(mappedBy="empresa")
 	private Empleado empleado;
-
 
 	public Empresa() {
 	}
